@@ -12,15 +12,15 @@ class Movies(Base):
     director = Column(String)
     release_year = Column(Integer)
 
-    reviews = relationship("Review", back_populates="movie", cascade="all, delete")
+    reviews = relationship("Review", back_populates="moviesDev", cascade="all, delete")
 
 
 class Review(Base):
     __tablename__ = "reviewsDev"
 
     id = Column(Integer, primary_key=True, index=True,autoincrement=True)
-    movie_id = Column(Integer, ForeignKey("movies.id"))
+    movie_id = Column(Integer, ForeignKey("moviesDev.id"))
     review_comment = Column(String)
     rating = Column(Float)
 
-    movie = relationship("Movies", back_populates="reviews")
+    movie = relationship("Movies", back_populates="reviewsDev")
