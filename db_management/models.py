@@ -1,13 +1,11 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String,Float
 from sqlalchemy.orm import relationship
 
-
-
 from . import database
 
 Base = database.Base
 class Movies(Base):
-    __tablename__ = "movies"
+    __tablename__ = "moviesDev"
 
     id = Column(Integer, primary_key=True, index=True,autoincrement=True)
     title = Column(String, unique=True)
@@ -18,7 +16,7 @@ class Movies(Base):
 
 
 class Review(Base):
-    __tablename__ = "reviews"
+    __tablename__ = "reviewsDev"
 
     id = Column(Integer, primary_key=True, index=True,autoincrement=True)
     movie_id = Column(Integer, ForeignKey("movies.id"))
